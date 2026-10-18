@@ -1,21 +1,38 @@
-# ⚡ Montpellier Mobility & Energy Dashboard
+# Analyse des Mobilités & Bornes Électriques — Métropole de Montpellier
 
-> Projet d'analyse de données territoriales et tableau de bord décisionnel (Power BI) basé sur les jeux de données Open Data de la Métropole de Montpellier.
+Ce projet présente un tableau de bord interactif sous Power BI permettant d'analyser le déploiement des bornes de recharge électrique au regard des flux de circulation routière dans la Métropole de Montpellier.
 
-## 🎯 Objectif du projet
-Évaluer la couverture en bornes de recharge électrique par rapport à la consommation énergétique des communes de la Métropole afin d'identifier les zones prioritaires d'équipement et d'apporter des recommandations stratégiques.
+## Objectif du Projet
 
-## 📂 Structure du dépôt
-- `/data` : Données brutes issues de l'Open Data de Montpellier.
-- `/dax` : Mesures et formules DAX optimisées.
-- `/screenshots` : Captures d'écran haute définition des 3 pages du rapport Power BI.
-- `/docs` : Cadrage méthodologique, notes d'analyse et recommandations décisionnelles.
+L'enjeu est de croiser les données de trafic avec les infrastructures de recharge pour identifier la couverture du réseau électrique et anticiper les besoins d'aménagement.
 
-## 🛠️ Outils utilisés
-- **Power BI Desktop** (Power Query, DAX, Modélisation relationnelle)
-- **Open Data Montpellier Métropole**
-- **GitHub Projects** (Gestion de projet & documentation)
+### Besoins utilisateurs (User Stories) :
+- **Chargé de mission mobilité :** Visualiser la répartition des bornes par station pour repérer les secteurs à équiper.
+- **Urbaniste / Métropole :** Consulter le volume moyen journalier de véhicules (MJA) pour évaluer la charge des grands axes.
+- **Décideur public :** Disposer d'une vue synthétique combinant indicateurs de trafic et de recharge sur une seule page.
 
-## 👤 Auteur
-**Harold Bissereth**  
-*Profil : Management & Stratégie SI | Data & IA | Ingénierie Pédagogique*
+## Démarche & Choix Techniques
+
+1. **Sources de données (Open Data Montpellier) :**
+   - `MMM_MMM_BornesElecEtotem` : Réseau des bornes de recharge e-totem.
+   - `MMM_MMM_Comptage` : Données de comptage du trafic routier.
+
+2. **Nettoyage & Préparation (Power Query) :**
+   - Typage des colonnes, suppression des doublons et validation des données.
+
+3. **Indicateurs clés (DAX) :**
+   - **`Nb_Bornes`** : `COUNTROWS(MMM_MMM_BornesElecEtotem)`
+   - **`Total_Vehicules`** : `SUM(MMM_MMM_Comptage[mja_jo])`
+
+4. **Restitution (Power BI) :**
+   - Conception d'un tableau de bord épuré articulé autour de 2 KPI clés et de graphiques de répartition par station/axe.
+
+## Principaux Chiffres (MVP)
+
+- **Nombre de bornes de recharge :** 52 bornes
+- **Trafic cumulé mesuré (MJA) :** 73 millions de véhicules
+
+## Évolutions prévues
+
+- Croisement géographique plus fin par commune/quartier.
+- Ajout de filtres temporels sur les évolutions de trafic.
