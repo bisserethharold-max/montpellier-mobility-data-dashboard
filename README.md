@@ -1,4 +1,4 @@
-# Analyse des Mobilités & Bornes Électriques — Métropole de Montpellier
+# Analyse des Mobilités & Bornes Électriques, Métropole de Montpellier
 
 Ce projet présente un tableau de bord interactif sous Power BI permettant d'analyser le déploiement des bornes de recharge électrique au regard des flux de circulation routière dans la Métropole de Montpellier.
 
@@ -21,8 +21,8 @@ L'enjeu est de croiser les données de trafic avec les infrastructures de rechar
    - Typage des colonnes, suppression des doublons et validation des données.
 
 3. **Indicateurs clés (DAX) :**
-   - **`Nb_Bornes`** : `COUNTROWS(MMM_MMM_BornesElecEtotem)`
-   - **`Total_Vehicules`** : `SUM(MMM_MMM_Comptage[mja_jo])`
+   - **Nb_Bornes** : COUNTROWS(MMM_MMM_BornesElecEtotem)
+   - **Total_Vehicules** : SUM(MMM_MMM_Comptage[mja_jo])
 
 4. **Restitution (Power BI) :**
    - Conception d'un tableau de bord épuré articulé autour de 2 KPI clés et de graphiques de répartition par station/axe.
