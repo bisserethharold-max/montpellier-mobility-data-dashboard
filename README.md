@@ -20,5 +20,4 @@ Les données proviennent du portail Open Data de la Métropole de Montpellier :
 * **Prédominance de Montpellier** : La ville-centre regroupe la majorité du trafic routier et près de 7 800 points de connexion recensés.
 * **Proportionnalité** : Les infrastructures de recharge ont été installées en priorité là où le trafic automobile est le plus dense, montrant une bonne cohérence entre les besoins et les équipements.
 
-## Aperçu du Tableau de Bord
-![Tableau de bord Power BI](<screenshots/Capture d'écran 2026-10-18 18-53-43.png>)
+![Tableau de bord Power BI](screenshots/dashboard.png)
