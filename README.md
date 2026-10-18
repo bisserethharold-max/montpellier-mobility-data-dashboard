@@ -21,5 +21,4 @@ Les données proviennent du portail Open Data de la Métropole de Montpellier :
 * **Proportionnalité** : Les infrastructures de recharge ont été installées en priorité là où le trafic automobile est le plus dense, montrant une bonne cohérence entre les besoins et les équipements.
 
 ## Aperçu du Tableau de Bord
-
-![Tableau de bord Power BI - Bornes et Trafic](dashboard.png)
+![Tableau de bord Power BI](<screenshots/Capture d'écran 2026-10-18 18-53-43.png>)
