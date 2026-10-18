@@ -1,38 +1,21 @@
-# Analyse des Mobilités & Bornes Électriques, Métropole de Montpellier
+# Analyse des bornes de recharge et du trafic routier à Montpellier
 
-Ce projet présente un tableau de bord interactif sous Power BI permettant d'analyser le déploiement des bornes de recharge électrique au regard des flux de circulation routière dans la Métropole de Montpellier.
+Ce projet étudie le lien entre la circulation automobile et la présence des bornes de recharge pour véhicules électriques dans la Métropole de Montpellier.
 
-## Objectif du Projet
+## 1. Objectifs
+* Comparer la répartition des bornes de recharge avec la fréquentation des axes routiers.
+* Construire un tableau de bord Power BI permettant de croiser les données de trafic et d'équipement par commune.
 
-L'enjeu est de croiser les données de trafic avec les infrastructures de recharge pour identifier la couverture du réseau électrique et anticiper les besoins d'aménagement.
+## 2. Données utilisées
+Les données proviennent du portail Open Data de la Métropole de Montpellier :
+* **MMM_MMM_BornesElecEtotem** : Liste des points de recharge pour véhicules électriques (réseau e-Totem) et de leurs connecteurs.
+* **MMM_MMM_Comptage** : Relevés de comptage du trafic routier global.
 
-### Besoins utilisateurs (User Stories) :
-- **Chargé de mission mobilité :** Visualiser la répartition des bornes par station pour repérer les secteurs à équiper.
-- **Urbaniste / Métropole :** Consulter le volume moyen journalier de véhicules (MJA) pour évaluer la charge des grands axes.
-- **Décideur public :** Disposer d'une vue synthétique combinant indicateurs de trafic et de recharge sur une seule page.
+## 3. Traitement des données et modélisation
+* **Power Query** : Harmonisation des noms des communes (`nom_commune`) dans les deux tables pour permettre la jointure.
+* **Modèle relationnel** : Création d'une relation plusieurs-à-plusieurs (`*:*`) basée sur la commune.
+* **Précision sur la mesure** : Le total des points dans la table des bornes correspond au nombre d'enregistrements techniques (connecteurs et prises individuelles) et non à un nombre d'utilisations.
 
-## Démarche & Choix Techniques
-
-1. **Sources de données (Open Data Montpellier) :**
-   - `MMM_MMM_BornesElecEtotem` : Réseau des bornes de recharge e-totem.
-   - `MMM_MMM_Comptage` : Données de comptage du trafic routier.
-
-2. **Nettoyage & Préparation (Power Query) :**
-   - Typage des colonnes, suppression des doublons et validation des données.
-
-3. **Indicateurs clés (DAX) :**
-   - **Nb_Bornes** : COUNTROWS(MMM_MMM_BornesElecEtotem)
-   - **Total_Vehicules** : SUM(MMM_MMM_Comptage[mja_jo])
-
-4. **Restitution (Power BI) :**
-   - Conception d'un tableau de bord épuré articulé autour de 2 KPI clés et de graphiques de répartition par station/axe.
-
-## Principaux Chiffres (MVP)
-
-- **Nombre de bornes de recharge :** 52 bornes
-- **Trafic cumulé mesuré (MJA) :** 73 millions de véhicules
-
-## Évolutions prévues
-
-- Croisement géographique plus fin par commune/quartier.
-- Ajout de filtres temporels sur les évolutions de trafic.
+## 4. Résultats
+* **Prédominance de Montpellier** : La ville-centre regroupe la majorité du trafic routier et près de 7 800 points de connexion recensés.
+* **Proportionnalité** : Les infrastructures de recharge ont été installées en priorité là où le trafic automobile est le plus dense, montrant une bonne cohérence entre les besoins et les équipements.
